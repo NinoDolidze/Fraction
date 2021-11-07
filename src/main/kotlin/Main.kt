@@ -1,38 +1,39 @@
 fun main(){
-        val variables = Point ("1" , "2")
-        println(variables.X)
-        println(variables.Y)
-        val x = 1
-        val y = 2
-        println(x == y)
-        val f1 = Fraction()
-        f1.numerator = 3.0
-        f1.denominator = 4.0
+    val variables = Point ("1" , "2")
+    println(variables.X)
+    println(variables.Y)
 
-        val f2 = Fraction()
-        f2.numerator = 3.0
-        f2.denominator = 4.0
+    val x = 1
+    val y = 2
+    println(x == y)
 
-        val f3 = Fraction()
-        f3.numerator =  0.0
-        f3.denominator= 0.0
+    val f1 = Fraction()
+    f1.numerator = 3.0
+    f1.denominator = 4.0
 
-        println(f1 == f2)
-        println(f1.toString())
-        val sum = Fraction(3.0, 4.0) + Fraction(3.0, 4.0)
-        println("ჯამი: ${sum.decimal}")
+    val f2 = Fraction()
+    f2.numerator = 3.0
+    f2.denominator = 4.0
 
-//        var multiplication = (f1.numerator*f2.numerator) + (f1.denominator*f2.denominator)
-//        println("ნამრავლი: ${f1.numerator*f2.numerator / f1.denominator*f2.denominator}")
-        }
+    println("x წერტილის სიმეტრიული გადატანა =  ${x*(-1)}")
+    println("y წერტილის სიმეტრიული გადატანა = ${y*(-1)}")
 
+
+    val mult1 = Fraction(f1.numerator*f2.numerator).div()
+    println("წილადების ნამრავლი = ${mult1}")
+
+    println(f1 == f2)
+    println(f1.toString())
+    val sum = Fraction(3.0, 4.0) + Fraction(3.0, 4.0)
+    println("წილადების ჯამი = ${sum.decimal}")
+
+}
 
 class Point (var X: String, var Y: String)
 {
     override fun toString(): String {
         return "$X\$Y"
     }
-
 }
 
 class Fraction (var numerator:Double = 0.0, var denominator:Double = 0.0 ) : Comparable<Fraction>{
@@ -66,11 +67,13 @@ class Fraction (var numerator:Double = 0.0, var denominator:Double = 0.0 ) : Com
         return result
     }
 
-    val decimal by lazy { numerator / denominator }
-
-
-
+    fun div(): Any {
+        val mult1 = numerator*numerator / denominator*denominator
+        return mult1
     }
 
+    val decimal by lazy { numerator / denominator }
+
+}
 
 
